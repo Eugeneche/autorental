@@ -1,0 +1,19 @@
+.item-page-title {
+    margin-top: 65px;
+}
+
+.info {
+    display: flex;
+    width: 100%;
+    min-height: 100px;
+
+    .photo {
+        width: 60%;
+        background: #000;
+    }
+
+    .characteristics {
+        width: 40%;
+        background: rgb(206, 199, 199);
+    }
+}

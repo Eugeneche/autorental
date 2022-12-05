@@ -1,0 +1,17 @@
+.footer {
+    width: 100%;
+    min-height: 50px;
+    background: #262626;
+    color: white;
+
+    .footer-container {
+        display: flex;
+        max-width: 1100px;
+        margin: 0 auto;
+        height: 70px;
+
+        span {
+            align-self: center;
+        }
+    }
+}

@@ -16,11 +16,33 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+/*     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    }, */
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `categories`,
+        path: `${__dirname}/src/data/categories`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `vehicles`,
+        path: `${__dirname}/src/data/vehicles`,
       },
     },
     `gatsby-transformer-sharp`,
