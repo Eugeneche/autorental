@@ -1,0 +1,235 @@
+.main-menu {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: #000000da;
+    z-index: 100;
+
+    .container {
+        margin: auto;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        height: 100%;
+        min-height: 50px;
+        padding: 0 20px;
+        /* background: #262626e3; */
+
+        .logo {
+            align-self: center;
+            
+            img {
+                margin-bottom: -5px;
+            }
+        }
+
+        .phone, .hamburger {
+            display: flex;
+
+            img {
+                margin-bottom: 0;
+                max-height: 40px;
+                align-self: center;
+            }
+
+            a {
+                align-self: center;
+                display: flex;
+                text-decoration: none;
+                color: #f5f5dc;
+
+                img {
+                    height: 25px;
+                }
+
+                span {
+                    align-self: center;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+
+.items {
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .pages {
+
+        color: #f5f5dc;
+
+        ul {
+            display: flex;
+            margin: 0;
+
+            li {
+                position: relative;
+                list-style: none;
+                margin: 0;
+                margin-left: 20px;
+        
+                a {                   
+                    text-decoration: none;
+                    color: #f5f5dc;
+                } 
+                
+                a::after {
+                    display: block;
+                    background-color: red;
+                    height: 2px;
+                    width: 0;
+                    color: red;
+                    content: '';
+                }
+
+                &:hover::after {
+                    position: absolute;
+                    display: block;
+                    background-color: red;
+                    height: 2px;
+                    width: 100%;
+                    color: red;
+                    content: '';
+                }
+
+
+            }
+        }
+    }
+
+    .vehicles {
+
+        ul.vehicles-categories {
+            display: none;
+            position: relative;
+        }
+    }
+
+    .vehicles::after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 12px;
+        background: none;
+    }
+    
+    .vehicles:hover {
+        position: relative;
+
+        ul.vehicles-categories {
+            position: absolute;
+            display: block;
+            margin-top: 12px;
+            background: #ffffff;
+
+            li {
+                width: max-content;
+                margin: 2px 5px;
+            }
+        } 
+    }
+
+    .socials {
+        display: flex;
+        justify-content: flex-end;
+        color: #dbdbdb;
+
+        a {
+            text-decoration: none;
+            color: #769bff;
+        }
+    }
+}
+
+/* mobile start */
+
+.mobile-menu-shadow {
+    position: fixed;
+    background: #3f3f3f52;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 90vh;
+    overflow-x: hidden;
+    margin: auto;
+    background: #ffffff;
+    transform: translate(0, 5%);
+
+    .close {
+        width: 30px;
+        margin: 25px;
+        align-self: end;
+    } 
+
+    .mobile-menu-pages {
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 25%;
+
+            li {
+                position: relative;
+                list-style: none;
+                text-transform: uppercase;
+        
+                a {                   
+                    text-decoration: none;
+                    color: #202020;
+                }
+            }
+        }  
+        
+        .mobileVehicles {
+            text-align: center;
+
+            .mobileVehiclesCategories {
+                margin: 10px 0 0;
+                font-size: 15px;
+            }
+            
+
+
+        }
+    }
+}
+/* mobile end */
+
+@media screen and (max-width: 1200px) {
+    
+    .main-menu {
+        /* padding: 0 20px; */
+        min-height: 50px;
+    }
+
+/*     .container {
+        
+    } */
+}
+
+@media screen and (max-width: 568px) {
+
+    .container {
+        flex-wrap: wrap;
+        /* flex-direction: row-reverse; */
+        /* min-height: 50px; */
+
+/*         .phone {
+            order: 2;
+        } */
+    }
+}
+
+

@@ -45,40 +45,40 @@ exports.createPages = async ({ graphql, actions }) => {
   }
   `)
 
-/*   const categories = await graphql(`
-  query getCategories {
-    mdx(fields: {slug: {eq: "categories"}}) {
-      frontmatter {
-        categories
+  const categories = await graphql(`
+    query getMenuCategories {
+      mdx(fields: {slug: {eq: "/categories/"}}) {
+        frontmatter {
+          categories
+        }
       }
     }
-  }
-  `) */
+  `)
 
   //console.log(data) 
 
   data?.allMdx?.nodes?.forEach(mdxNode => {
 
-    /* data?.allFile?.nodes?.forEach(fileNode => { */
-      //const categoryUrl = mdxNode.frontmatter.category.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
-      //const endUrl = mdxNode.slug.toLowerCase().split('/')[mdxNode.slug.toLowerCase().split('/').length - 1]
-      const originalSlug = mdxNode.fields.slug
-      const modifiedSlug = mdxNode.fields.slug.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
+    const originalSlug = mdxNode.fields.slug
+    const modifiedSlug = mdxNode.fields.slug.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
 
-/*       if(fileNode.relativePath === mdxNode.frontmatter.relPath) {
-        relPath = fileNode.relativePath
-        imageData = fileNode.childImageSharp.gatsbyImageData
-      } */
-
-      actions.createPage({
-        path: modifiedSlug,
-        component: path.resolve('./src/components/ItemPage/ItemPage.js'),
-        context: { modifiedSlug, originalSlug }
-      })
-    /* }) */
+    actions.createPage({
+      path: modifiedSlug,
+      component: path.resolve('./src/components/ItemPage/ItemPage.js'),
+      context: { modifiedSlug, originalSlug }
+    })
   })
 
-  
+  categories.data.mdx.frontmatter.categories.forEach(category => {
+
+    const categoryUrl = category.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
+    const categoryName = category
+    actions.createPage({
+        path: categoryUrl,
+        component: path.resolve('./src/components/CategoryPage/CategoryPage.js'),
+        context: { categoryName }
+      })
+  })
 }
 
 
