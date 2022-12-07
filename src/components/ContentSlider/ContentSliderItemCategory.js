@@ -56,10 +56,13 @@ const ContentSliderItemCategory = (props) => {
 
   return (
     <div className={styles.contentSliderItemCategory} style={{width: props.style, margin: "0 0.5%"}}>
-        
-        <GatsbyImage image={props.image} alt={props.alt} />
+        <div className={styles.image}>
+          <GatsbyImage image={props.image} alt={props.alt} />
+        </div>
         <div className={styles.propertiesBlock}>
-          <Link to={slug}><h3>{props.title}</h3></Link>
+          <div className={styles.vehicleTitle}>
+            <Link to={slug}><h3>{props.title}</h3></Link>
+          </div>
           <div className={styles.propertyItem}>
             <img className={styles.propertyIcon} src={seat} alt="auto seat icon"></img><span>{props.seats}</span>
           </div>
