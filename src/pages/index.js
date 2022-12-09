@@ -1,17 +1,82 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+//import { StaticImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
+
+import * as styles from "../style/_style.module.scss"
+import HeaderSlider from "../components/HeaderSlider/HeaderSlider"
+import ContentSlider from "../components/ContentSlider/ContentSlider"
 
 
-const IndexPage = () => (
-  <Layout>
+const IndexPage = () => {
 
-  </Layout>
-)
+  let data = useStaticQuery(graphql`
+  query getdata {
+    file(sourceInstanceName: {eq: "categories"}, extension: {eq: "mdx"}) {
+      childMdx {
+        frontmatter {
+          categories
+        }
+      }
+    }
+    allFile(filter: {sourceInstanceName: {eq: "vehicles"}, extension: {eq: "jpg"}}) {
+      nodes {
+        relativeDirectory
+        childrenImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+    allMdx(filter: {fields: {slug: {ne: "/categories/"}}}) {
+      nodes {
+        frontmatter {
+          airConditioner
+          bodyStyle
+          category
+          name
+          price
+          seats
+          transmission
+          year
+        }
+        id
+        fields {
+          slug
+        }
+      }
+    }
+  }
+`)
+  
+  let categories = data.file.childMdx.frontmatter.categories
+
+  return (
+    <Layout>
+      <HeaderSlider />
+      <div className={styles.contentContainer}>
+        
+        {categories.map(category => {
+          const imageData = []
+          data.allMdx.nodes.map(node => {
+
+            return node.frontmatter.category === category && imageData.push(node)
+          })
+          //console.log(imageData)
+          return (
+            <section key={category}>
+              <h2>{category}</h2>
+              <ContentSlider imageData={imageData}/>
+            </section>
+          )
+        })} 
+
+      </div>
+    </Layout>
+  )
+}
 
 /**
  * Head export to define metadata for the page

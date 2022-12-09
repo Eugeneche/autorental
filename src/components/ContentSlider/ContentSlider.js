@@ -33,18 +33,19 @@ const ContentSlider = (props) => {
     <div className={styles.contentSlider}>
       
         {slider.map(photo => {
+          //console.log(photo)
             return <ContentSliderItemMain
-                    key={photo.childMdx.id} 
+                    key={photo.id} 
                     style={`${100/photosQty - 1}%`} 
-                    title={photo.childMdx.frontmatter.name}
-                    seats={photo.childMdx.frontmatter.seats}
-                    price={photo.childMdx.frontmatter.price}
-                    transmission={photo.childMdx.frontmatter.transmission}
-                    bodyStyle={photo.childMdx.frontmatter.bodyStyle}
-                    year={photo.childMdx.frontmatter.year}
-                    ac={photo.childMdx.frontmatter.airConditioner}
-                    imagePath={photo.childMdx.frontmatter.relPath} 
-                    alt={photo.childMdx.frontmatter.name} 
+                    title={photo.frontmatter.name}
+                    seats={photo.frontmatter.seats}
+                    price={photo.frontmatter.price}
+                    transmission={photo.frontmatter.transmission}
+                    bodyStyle={photo.frontmatter.bodyStyle}
+                    year={photo.frontmatter.year}
+                    ac={photo.frontmatter.airConditioner}
+                    slug={photo.fields.slug} 
+                    alt={photo.frontmatter.name} 
                     />
           }
         )

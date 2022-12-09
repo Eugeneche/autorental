@@ -109,14 +109,12 @@
 
 
         .property-item {
-            /* display: flex; */
             display: inline-grid;
             display: -ms-inline-grid;
             display: -moz-inline-grid;
             grid-template-columns: 25px 1fr;
             padding: 0 25px;
             height: 25px;
-            /* margin-right: 7px; */
 
             img {
                 margin: 0;
@@ -124,7 +122,6 @@
             }
 
             .property-icon {
-                /* height: 20px; */
                 width:  16px;
             }
         }
@@ -136,5 +133,7 @@
         color: #008000;
         background: #ededed;
         padding: 0 10px;
+        display: flex;
+        align-items: center;
     }
 }

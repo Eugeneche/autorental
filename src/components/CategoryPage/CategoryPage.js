@@ -9,44 +9,43 @@ import ContentSliderItemCategory from "../ContentSlider/ContentSliderItemCategor
 const CategoryPage = (data) => {
 
   const query = useStaticQuery(graphql`
-  query getCategory {
-    allMdx(filter: {fields: {slug: {ne: "/categories/"}}}) {
-      nodes {
-        frontmatter {
-          airConditioner
-          bodyStyle
-          category
-          dir
+    query getCategory {
+      allMdx(filter: {fields: {slug: {ne: "/categories/"}}}) {
+        nodes {
+          frontmatter {
+            airConditioner
+            bodyStyle
+            category
+            dir
+            name
+            price
+            relPath
+            seats
+            transmission
+            year
+          }
+          fields {
+            slug
+          }
+        }
+      }
+      allFile(filter: {sourceInstanceName: {eq: "vehicles"}, extension: {eq: "jpg"}}) {
+        nodes {
+          childImageSharp {
+            gatsbyImageData(placeholder: DOMINANT_COLOR, height: 480, width: 640)
+            id
+          }
+          relativeDirectory
           name
-          price
-          relPath
-          seats
-          transmission
-          year
-        }
-        fields {
-          slug
         }
       }
     }
-    allFile(filter: {sourceInstanceName: {eq: "vehicles"}, extension: {eq: "jpg"}}) {
-      nodes {
-        childImageSharp {
-          gatsbyImageData(placeholder: DOMINANT_COLOR, height: 480, width: 640)
-          id
-        }
-        relativeDirectory
-        name
-      }
-    }
-  }
   `)
-//console.log(data)
+
   const currentCategory = data.pageContext.categoryName
   const vehiclesOfCurrentCategory = []
   let allData = {}
-  //const vehiclesOfCurrentCategory = []
-  //console.log(currentCategory)
+
   query.allMdx.nodes.map(nodeMdx => {
        
     query.allFile.nodes.map(nodeImg => {
@@ -54,14 +53,13 @@ const CategoryPage = (data) => {
         if(nodeMdx.frontmatter.category === currentCategory &&
           `/${nodeImg.relativeDirectory}/` === nodeMdx.fields.slug &&
           nodeImg.name === 'cover') {
-            console.log(nodeImg)
         allData = {...nodeMdx, ...nodeImg}
         vehiclesOfCurrentCategory.push(allData)
       }
     })
     
   })
-  //console.log(vehiclesOfCurrentCategory)
+
   return (
     <Layout>
       <Seo title="Category" />
@@ -80,6 +78,7 @@ const CategoryPage = (data) => {
             image={vehicle.childImageSharp.gatsbyImageData}
             alt={vehicle.frontmatter.name}
             price={vehicle.frontmatter.price}
+            modifiedSlug={vehicle.fields.slug.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()}
             /* style={`${100/photosQty - 1}%`} */
           />
         })}

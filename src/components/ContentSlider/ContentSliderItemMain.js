@@ -16,38 +16,41 @@ const ContentSliderItemMain = (props) => {
   const[slug, setSlug] = useState('')
 
   const data = useStaticQuery(graphql`
-    query ItemMainPage {
-      allFile(filter: {sourceInstanceName: {eq: "vehicles"}, extension: {eq: "jpg"}}) {
-        nodes {
-          relativePath
-          childImageSharp {
-            gatsbyImageData(placeholder: DOMINANT_COLOR, height: 340, width: 640)
-          }
+  query ItemMainPage {
+    allFile(filter: {sourceInstanceName: {eq: "vehicles"}, extension: {eq: "jpg"}}) {
+      nodes {
+        childImageSharp {
+          gatsbyImageData(placeholder: DOMINANT_COLOR, height: 340, width: 640)
         }
+        relativeDirectory
+        name
       }
-      allMdx(filter: {fields: {slug: {ne: "/categories/"}}}) {
-        nodes {
-          frontmatter {
-            relPath
-            category
-          }
-          fields {
-            slug
-          }
+    }
+    allMdx(filter: {fields: {slug: {ne: "/categories/"}}}) {
+      nodes {
+        frontmatter {
+          relPath
+          category
+        }
+        fields {
+          slug
         }
       }
     }
+  }
   `)
 console.log(data)
+console.log(props)
   const allPhotos = data.allFile.nodes
   const allSlugs = data.allMdx.nodes
 
   useEffect(() => {
     allPhotos.forEach(item => {
       allSlugs.forEach(slugEl => {
-        if (item.relativePath === props.imagePath && item.relativePath === slugEl.frontmatter.relPath) {
+        if (`/${item.relativeDirectory}/` === props.slug && 
+        item.name === 'cover') {
           setImagePath(getImage(item.childImageSharp.gatsbyImageData))            
-          setSlug(slugEl.slug.toLowerCase())
+          setSlug(props.slug.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase())
         }
       })
     })
