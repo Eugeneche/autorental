@@ -39,8 +39,7 @@ const ContentSliderItemMain = (props) => {
     }
   }
   `)
-console.log(data)
-console.log(props)
+
   const allPhotos = data.allFile.nodes
   const allSlugs = data.allMdx.nodes
 

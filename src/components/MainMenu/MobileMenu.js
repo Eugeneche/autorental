@@ -59,10 +59,12 @@ const MobileMenu = () => {
                                 <Link to="/">Domů</Link>
                             </li>
                             <li className={styles.mobileVehicles}>
-                                <Link to="/vehicles">Auta</Link>
+                            {/* <li>Auta</li> */}
                                 <ul className={styles.mobileVehiclesCategories}>
                                     {vehiclesCategories.map(cat => {
-                                        return <li key={cat} className={styles.mobileCategory}><Link to="/">{cat}</Link></li>
+                                        console.log(cat)
+                                        const url = cat.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
+                                        return <li key={cat} className={styles.mobileCategory}><Link to={"/"+url}>{cat}</Link></li>
                                     })}
                                 </ul>
                             </li>
