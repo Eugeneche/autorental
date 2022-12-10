@@ -57,7 +57,7 @@ const IndexPage = () => {
     <Layout>
       <HeaderSlider />
       <div className={styles.contentContainer}>
-        
+        <h1 className={styles.mainPageTitle}>půjčovna aut pravě pro vás</h1>
         {categories.map(category => {
           const imageData = []
           data.allMdx.nodes.map(node => {
@@ -67,7 +67,7 @@ const IndexPage = () => {
           //console.log(imageData)
           return (
             <section key={category}>
-              <h2>{category}</h2>
+              <h2 className={styles.mainPageTitle}>{category}</h2>
               <ContentSlider imageData={imageData}/>
             </section>
           )

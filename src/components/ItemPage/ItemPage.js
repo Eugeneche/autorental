@@ -17,19 +17,16 @@ const ItemPage = ({ data, pageContext } ) => {
     }
   })
 
-  console.log(names)
-  console.log(images)
-  console.log(names.includes('cover'))
-
   if (names.includes('cover')) {
     images.forEach(img => {
       if(img.name === 'cover') image = img
     })
   } else image = images[0]
-  console.log(image)
+
   return (
     <Layout>
       <Seo title={data?.mdx?.frontmatter.name} />
+      <div className={styles.gap}></div>
       <div className={styles.contentContainer}>
         <h1 className={style.itemPageTitle}>{data?.mdx?.frontmatter.name}</h1>
         <div className={style.info}>
