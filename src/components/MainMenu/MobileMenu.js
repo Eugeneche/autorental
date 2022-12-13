@@ -62,7 +62,6 @@ const MobileMenu = () => {
                             {/* <li>Auta</li> */}
                                 <ul className={styles.mobileVehiclesCategories}>
                                     {vehiclesCategories.map(cat => {
-                                        console.log(cat)
                                         const url = cat.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
                                         return <li key={cat} className={styles.mobileCategory}><Link to={"/"+url}>{cat}</Link></li>
                                     })}
