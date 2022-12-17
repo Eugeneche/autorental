@@ -1,8 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import * as styles from "./_MainMenu.module.scss"
 import { Link } from "gatsby"
 import { graphql, useStaticQuery } from "gatsby"
 import logo from "../../images/groufo_logo_yellow_white.svg"
+import logo_mob from "../../images/groufo_logo_yellow_white_mobile.svg"
 import menu from "../../images/icons/hamb-menu.svg"
 import phone from "../../images/icons/phone.svg"
 import close from "../../images/icons/close.svg"
@@ -23,6 +24,17 @@ const MobileMenu = () => {
     //console.log(data.mdx.frontmatter.categories)
 
     const[isShow, setShow] = useState(false)
+    const [width, setWidth] = useState('')
+
+    useEffect(() => {
+
+        setWidth(window.innerWidth)
+        window.addEventListener('resize', () => setWidth(window.innerWidth))
+        window.removeEventListener('resize', () => setWidth(window.innerWidth))
+        return () => { 
+        setWidth('')}
+    }, [])
+
     const showMobileMenu = () => {
         setShow(true)
     }
@@ -37,7 +49,7 @@ const MobileMenu = () => {
                 <div className={styles.container}>
                     <div className={styles.logo}>
                         <Link to="/">
-                            <img src={logo} alt="groufo logo"></img>
+                            <img src={width > 667 ? logo : logo_mob} alt="groufo logo"></img>
                         </Link>
                     </div>
                     <div className={styles.phone}>

@@ -146,6 +146,95 @@
             }
         }
     }
+}
 
-    
+@media screen and (max-width: 667px) {
+
+    .header-slider {
+        margin-bottom: calc(200px + 22vw);
+    }
+
+    .hero {
+        transform: translate(-50%, 100%);
+        background: #f1f1f1;
+        min-height: auto;
+
+        .top-background {
+            /* margin-left: 0; */
+            padding: 2vw;
+            margin: 10px auto 0;
+            column-gap: 2vw;
+            background: none;
+
+            .full-logo {
+                width: 90px;
+            }
+
+            .hero-text {
+                margin: 0;
+            }
+            .main-hero-text {
+                color: #1f1f1f;
+            }
+
+            .sub-hero-text {
+                color: #3f3f3f;
+                display: inline-block;
+                padding-right: 10px;
+                text-transform: capitalize;
+            }
+        
+            .sub-hero-text:last-child {
+                padding-right: 0;
+            }
+        }
+
+        .advantages {
+            flex-direction: column;
+            margin: 10px auto;
+            width: fit-content;
+            padding: 1vw 6vw;
+
+            .advantage-item {
+                flex-direction: row;
+
+                img {
+                    margin: 7px 2vw 7px 0;
+                }
+
+                span {
+                    margin: 0;
+                }
+            }
+        }
+
+    }
+
+
+}
+
+@media screen and (max-width: 428px) {
+
+    .hero {
+
+        .top-background {
+            padding: 1vw 0;
+            min-width: 100%;
+            justify-content: center;
+
+            .full-logo {
+                width: 20vw;
+                margin: 0;
+            }
+        }
+
+        .advantages {
+            padding: 1vw 5vw;
+
+            .advantage-item {
+                font-size: 14px;
+            }
+        }
+
+    }
 }
