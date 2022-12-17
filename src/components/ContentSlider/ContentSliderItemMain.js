@@ -57,8 +57,9 @@ const ContentSliderItemMain = (props) => {
 
   return (
     <div className={styles.contentSliderItemMain} style={{width: props.style, margin: "0 0.5%"}}>
-        
-      <GatsbyImage image={imagePath} alt={props.alt} />
+      <Link to={slug}> 
+        <GatsbyImage image={imagePath} alt={props.alt} />
+      </Link>
       <div className={styles.vehicleTitle}>
         <h3><Link to={slug}>{props.title}</Link></h3>
       </div>

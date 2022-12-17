@@ -199,3 +199,34 @@
         align-items: center;
     }
 }
+
+@media screen and (max-width: 667px) {
+    
+    .content-slider-item-category {
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto;
+
+        .image {
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+
+        .properties-block {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 3;
+
+            .property-item:last-child {
+                margin-bottom: 20px;
+            }
+        }
+
+        .price {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+    }
+}
