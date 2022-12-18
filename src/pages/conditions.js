@@ -9,6 +9,7 @@ const Conditions = () => (
     <Seo title="Podminky" />
     <div className={styles.contentContainer}>
       <div className={styles.gap}></div>
+      <div className={styles.gap}></div>
       <h1>Podmínky půjčení auta</h1>
       <h2>Co potřebuji pro pronájem auta?</h2>
       <p>Vše co potřebujete pro zarezervování Vašeho auta je kreditní nebo debitní karta. Při vyzvednutí Vašeho auta budete potřebovat:

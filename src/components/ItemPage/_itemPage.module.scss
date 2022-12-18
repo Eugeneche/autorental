@@ -27,13 +27,12 @@
     .rest-image-item {
         border: 1px solid gray;
         padding: 10px;
-
-/*         img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-        } */
     }
+}
+
+.vehicle-description {
+    width: 90%;
+    margin: 40px auto 0;
 }
 
 @media screen and (max-width: 428px) {

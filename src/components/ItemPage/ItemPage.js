@@ -34,7 +34,7 @@ const ItemPage = ({ data, pageContext } ) => {
       <Seo title={data?.mdx?.frontmatter.name} />
       <div className={styles.gap}></div>
       <div className={styles.contentContainer}>
-        <h1 className={style.itemPageTitle}>{data?.mdx?.frontmatter.name}</h1>
+        <h1 className={style.itemPageTitle}>Půjčení auta {data?.mdx?.frontmatter.name}</h1>
         <div className={s.contentSliderItemCategory}>
           <div className={s.image}>
             <GatsbyImage image={image.childImageSharp.gatsbyImageData} alt={data?.mdx?.frontmatter.name} />
@@ -66,14 +66,17 @@ const ItemPage = ({ data, pageContext } ) => {
         </div>
 
         <div className={style.restImagesGallery}>
-        {images.map(img => {
-          console.log(img)
-          if (img.name !== 'cover') {
-            return <div key={img.childImageSharp.id} className={style.restImageItem}>
-            <GatsbyImage style={{height: "100%"}} image={img.childImageSharp.gatsbyImageData} alt={img.relativeDirectory.replace(/["/"]/g, ", ")} />
-          </div>
-          }
+          {images.map(img => {
+
+            if (img.name !== 'cover') {
+              return <div key={img.childImageSharp.id} className={style.restImageItem}>
+                <GatsbyImage style={{height: "100%"}} image={img.childImageSharp.gatsbyImageData} alt={img.relativeDirectory.replace(/["/"]/g, ", ")} />
+              </div>
+            }
         })}
+        </div>
+        <div className={style.vehicleDescription}>
+          <p>{data.mdx.body}</p>
         </div>
       </div>     
     </Layout>
@@ -105,12 +108,11 @@ query getPageData($originalSlug: String) {
       seats
       transmission
       year
-      dir
-      relPath
     }
     fields {
       slug
     }
+    body
   }
 }
 `

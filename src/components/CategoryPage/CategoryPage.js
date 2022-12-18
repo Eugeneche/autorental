@@ -16,10 +16,8 @@ const CategoryPage = (data) => {
             airConditioner
             bodyStyle
             category
-            dir
             name
             price
-            relPath
             seats
             transmission
             year

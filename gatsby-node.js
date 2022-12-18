@@ -19,7 +19,6 @@ exports.createPages = async ({ graphql, actions }) => {
       nodes {
         id
         frontmatter {
-          relPath
           price
           name
           airConditioner

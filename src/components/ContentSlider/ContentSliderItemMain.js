@@ -29,7 +29,6 @@ const ContentSliderItemMain = (props) => {
     allMdx(filter: {fields: {slug: {ne: "/categories/"}}}) {
       nodes {
         frontmatter {
-          relPath
           category
         }
         fields {
