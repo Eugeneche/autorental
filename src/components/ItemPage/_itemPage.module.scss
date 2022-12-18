@@ -20,11 +20,25 @@
 
 .restImagesGallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-rows: repeat(auto-fit, min-height);
     gap: 10px;
 
     .rest-image-item {
         border: 1px solid gray;
         padding: 10px;
+
+/*         img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        } */
+    }
+}
+
+@media screen and (max-width: 428px) {
+    .restImagesGallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     }
 }

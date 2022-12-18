@@ -70,7 +70,7 @@ const ItemPage = ({ data, pageContext } ) => {
           console.log(img)
           if (img.name !== 'cover') {
             return <div key={img.childImageSharp.id} className={style.restImageItem}>
-            <GatsbyImage image={img.childImageSharp.gatsbyImageData} alt={img.relativeDirectory.replace(/["/"]/g, ", ")} />
+            <GatsbyImage style={{height: "100%"}} image={img.childImageSharp.gatsbyImageData} alt={img.relativeDirectory.replace(/["/"]/g, ", ")} />
           </div>
           }
         })}
@@ -88,7 +88,7 @@ query getPageData($originalSlug: String) {
     nodes {
       relativePath
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
+        gatsbyImageData(layout: FULL_WIDTH, height: 400)
         id
       }
       relativeDirectory
