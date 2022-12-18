@@ -17,3 +17,14 @@
         background: rgb(206, 199, 199);
     }
 }
+
+.restImagesGallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 10px;
+
+    .rest-image-item {
+        border: 1px solid gray;
+        padding: 10px;
+    }
+}

@@ -63,7 +63,8 @@ const CategoryPage = (data) => {
   return (
     <Layout>
       <Seo title="Category" />
-      <div className={commonStyles.contentContainer}>
+      <div className={commonStyles.gap}></div>
+      <div className={commonStyles.contentContainer}>     
         <h1 className={catsStyle.itemPageTitle}>{data.pageContext.categoryName}</h1>
         {vehiclesOfCurrentCategory.map(vehicle => {
 
