@@ -32,7 +32,7 @@ const ContentSlider = (props) => {
   return (
     <div className={styles.contentSlider}>
       
-        {slider.map(photo => {
+        {slider.reverse().map(photo => {
           //console.log(photo)
             return <ContentSliderItemMain
                     key={photo.id} 

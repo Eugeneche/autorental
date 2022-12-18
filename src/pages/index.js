@@ -29,7 +29,10 @@ const IndexPage = () => {
         }
       }
     }
-    allMdx(filter: {fields: {slug: {ne: "/categories/"}}}) {
+    allMdx(
+      filter: {fields: {slug: {ne: "/categories/"}}}
+      sort: {frontmatter: {date: ASC}}
+    ) {
       nodes {
         frontmatter {
           airConditioner
@@ -40,6 +43,7 @@ const IndexPage = () => {
           seats
           transmission
           year
+          date(formatString: "MMMM DD, YYYY")
         }
         id
         fields {
