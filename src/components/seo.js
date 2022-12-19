@@ -19,6 +19,7 @@ function Seo({ description, title, children, ogImageDefault }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -41,7 +42,7 @@ function Seo({ description, title, children, ogImageDefault }) {
           <meta name="twitter:creator" content={site.siteMetadata?.author || ``} />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={metaDescription} />
-          <meta property="og:image" content={og} />
+          <meta property="og:image" content={`${site.siteMetadata?.siteUrl}${og}`} />
         </Helmet>
       </HelmetProvider>
       {children}
