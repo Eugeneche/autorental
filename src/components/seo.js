@@ -39,15 +39,15 @@ const Seo = ({ description, title, children, imageUrl, imageAlt }) => {
   return (
     <>
       <HelmetProvider>
-        <Helmet>
+        <Helmet prioritizeSeoTags>
           <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
-          <meta name="description" content={metaDescription} />
-          <meta property="og:title" content={title} />
-          <meta property="og:description" content={metaDescription} />
-          <meta property="og:type" content="website" />
           <meta property="twitter:image:alt" content={imageAlt || "Groufo auto rental"} />
           <meta property="og:image" content={constructUrl(data.site.siteMetadata.siteUrl, data.ogImageDefault?.childImageSharp?.fixed?.src)} />
           <meta name="twitter:image" content={constructUrl(data.site.siteMetadata.siteUrl, data.ogImageDefault?.childImageSharp?.fixed?.src)} />
+          <meta name="description" content={metaDescription} />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={metaDescription} />
+          <meta property="og:type" content="website" />          
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:creator" content={data.site.siteMetadata?.author || ``} />
           <meta name="twitter:title" content={title} />
