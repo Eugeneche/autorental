@@ -4,7 +4,6 @@ import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import * as styles from "../../style/_style.module.scss"
 import * as style from "./_itemPage.module.scss"
-import * as s from "../../components/ContentSlider/_ContentSlider.module.scss"
 import Seo from "../seo"
 import seat from "../../images/icons/car-seat.svg"
 import snowflake from "../../images/icons/snowflake_1.svg"
@@ -35,32 +34,32 @@ const ItemPage = ({ data, pageContext } ) => {
       <div className={styles.gap}></div>
       <div className={styles.contentContainer}>
         <h1 className={style.itemPageTitle}>Půjčení auta {data?.mdx?.frontmatter.name}</h1>
-        <div className={s.contentSliderItemCategory}>
-          <div className={s.image}>
+        <div className={style.contentSliderItem}>
+          <div className={style.image}>
             <GatsbyImage image={image.childImageSharp.gatsbyImageData} alt={data?.mdx?.frontmatter.name} />
           </div>
-          <div className={s.propertiesBlock}>
-            <div className={s.vehicleTitle}>
+          <div className={style.propertiesBlock}>
+            <div className={style.vehicleTitle}>
               <h3>Specifikace vozidla {data?.mdx?.frontmatter.name}</h3>
             </div>
-            <div className={s.propertyItem}>
-              <img className={s.propertyIcon} src={seat} alt="auto seat icon"></img><span>{data?.mdx?.frontmatter.seats}</span>
+            <div className={style.propertyItem}>
+              <img className={style.propertyIcon} src={seat} alt="auto seat icon"></img><span>{data?.mdx?.frontmatter.seats}</span>
             </div>
-            <div className={s.propertyItem}>
-              <img className={s.propertyIcon} src={snowflake} alt="snowflake icon"></img>{data?.mdx?.frontmatter.ac ? `Ano` : `Ne`}            
+            <div className={style.propertyItem}>
+              <img className={style.propertyIcon} src={snowflake} alt="snowflake icon"></img>{data?.mdx?.frontmatter.ac ? `Ano` : `Ne`}            
             </div>   
-            <div className={s.propertyItem}>
-              <img className={s.propertyIcon} src={transmission} alt="transmission icon"></img><span>{data?.mdx?.frontmatter.transmission}</span>
+            <div className={style.propertyItem}>
+              <img className={style.propertyIcon} src={transmission} alt="transmission icon"></img><span>{data?.mdx?.frontmatter.transmission}</span>
             </div>    
-            <div className={s.propertyItem}>
-              <img className={s.propertyIcon} src={car} alt="car icon"></img><span>{data?.mdx?.frontmatter.bodyStyle}</span>
+            <div className={style.propertyItem}>
+              <img className={style.propertyIcon} src={car} alt="car icon"></img><span>{data?.mdx?.frontmatter.bodyStyle}</span>
             </div>    
-            <div className={s.propertyItem}>
-              <img className={s.propertyIcon} src={factory} alt="factory icon"></img>{`Rok ${data?.mdx?.frontmatter.year}`}
+            <div className={style.propertyItem}>
+              <img className={style.propertyIcon} src={factory} alt="factory icon"></img>{`Rok ${data?.mdx?.frontmatter.year}`}
             </div>    
 
           </div>
-          <div className={s.price}>
+          <div className={style.price}>
             {`${data?.mdx?.frontmatter.price} Kč/den`}
           </div>
         </div>

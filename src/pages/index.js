@@ -67,10 +67,10 @@ const IndexPage = () => {
 
             return node.frontmatter.category === category && imageData.push(node)
           })
-          //console.log(imageData)
+
           return (
             <section key={category}>
-              <h2 className={styles.mainPageTitle}>{category}</h2>
+              <h2 className={styles.mainPageTitle}>{category}</h2><Link className={styles.linkToCategory} to={category.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()}>&nbsp;&#10095;&#10095;</Link>
               <ContentSlider imageData={imageData}/>
             </section>
           )

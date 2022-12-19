@@ -33,7 +33,7 @@ const ContentSlider = (props) => {
     <div className={styles.contentSlider}>
       
         {slider.reverse().map(photo => {
-          //console.log(photo)
+          
             return <ContentSliderItemMain
                     key={photo.id} 
                     style={`${100/photosQty - 1}%`} 

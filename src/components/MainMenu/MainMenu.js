@@ -32,8 +32,9 @@ const MainMenu = () => {
                         <div className={styles.pages}>
                             <ul>
                                 <li className={styles.vehicles}>
+                                    <div className={styles.vehiclesArea}></div>
                                     {/* <Link to="/vehicles">Auta&nbsp;<span style={{display: "inline-block", color: "grey",  transform: "rotate(90deg)", top: "7px"}}>&#10095;</span></Link> */}
-                                    Auta&nbsp;<span style={{display: "inline-block", color: "grey",  transform: "rotate(90deg)", top: "7px"}}>&#10095;</span>
+                                    Auta&nbsp;&nbsp;<span style={{display: "inline-block", color: "grey",  transform: "rotate(90deg)", top: "7px"}}>&#10095;</span>
                                     <ul className={styles.vehiclesCategories}>
                                     {vehiclesCategories.map(cat => {
                                         const url = cat.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()

@@ -56,11 +56,11 @@ const ContentSliderItemMain = (props) => {
 
   return (
     <div className={styles.contentSliderItemMain} style={{width: props.style, margin: "0 0.5%"}}>
-      <Link to={slug}> 
+      <Link className={styles.linkToVehicle} to={slug}> 
         <GatsbyImage image={imagePath} alt={props.alt} />
-      </Link>
+      
       <div className={styles.vehicleTitle}>
-        <h3><Link to={slug}>{props.title}</Link></h3>
+        <h3>{/* <Link to={slug}> */}{props.title}{/* </Link> */}</h3>
       </div>
       <div className={styles.propertiesBlock}>
         <div className={styles.propertyItem}>
@@ -82,7 +82,7 @@ const ContentSliderItemMain = (props) => {
       </div>
       <div className={styles.price}>
         {`${props.price} Kč/den`}
-      </div>
+      </div></Link>
     </div>
   )
 }

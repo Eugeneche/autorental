@@ -11,7 +11,7 @@ import factory from "../../images/icons/factory.svg"
 const ContentSliderItemCategory = (props) => {
 
   return (
-    <div className={styles.contentSliderItemCategory} style={{width: props.style, margin: "0 0.5%"}}>
+    <div className={styles.contentSliderItemCategory} style={{width: props.style, margin: "0 0.5% 10px"}}>
         <div className={styles.image}>
           <GatsbyImage image={props.image} alt={props.alt} />
         </div>

@@ -102,21 +102,32 @@
     }
 
     .vehicles {
+        font-weight: 500;
 
         ul.vehicles-categories {
             display: none;
             position: relative;
+            
         }
     }
 
-    .vehicles::after {
+    .vehicles::before {
         position: absolute;
         content: '';
         display: block;
         width: 100%;
-        height: 12px;
+        height: 50px;
         background: none;
     }
+
+/*     .vehicles::after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 50px;
+        background: none;
+    } */
     
     .vehicles:hover {
         position: relative;
@@ -124,12 +135,17 @@
         ul.vehicles-categories {
             position: absolute;
             display: block;
-            margin-top: 12px;
-            background: #ffffff;
+            margin-top: 14px;
+            padding-bottom: 5px;
+            background: #404040c9;
+            
 
             li {
                 width: max-content;
                 margin: 2px 5px;
+            }
+            a {
+                font-weight: 400;
             }
         } 
     }
