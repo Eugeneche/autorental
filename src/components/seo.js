@@ -7,8 +7,9 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import og from "../images/groufo-autorental.jpg"
 
-function Seo({ description, title, children, siteUrl, image }) {
+function Seo({ description, title, children }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -27,7 +28,7 @@ function Seo({ description, title, children, siteUrl, image }) {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
-  const ogImageUrl = `${site.siteMetadata?.siteUrl}/${site.siteMetadata?.image}`
+  const ogImageUrl = `${site.siteMetadata?.siteUrl}${og}`
 
   return (
     <>
