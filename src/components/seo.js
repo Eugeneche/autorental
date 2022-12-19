@@ -7,7 +7,7 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import og from "../images/groufo-autorental.jpg"
+import { Helmet, HelmetProvider } from "react-helmet-async"
 
 function Seo({ description, title, children }) {
   const { site } = useStaticQuery(
@@ -18,8 +18,6 @@ function Seo({ description, title, children }) {
             title
             description
             author
-            siteUrl
-            image
           }
         }
       }
@@ -28,20 +26,23 @@ function Seo({ description, title, children }) {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
-  const ogImageUrl = `${site.siteMetadata?.siteUrl}${og}`
 
   return (
     <>
-      <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
-      <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:creator" content={site.siteMetadata?.author || ``} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={metaDescription} />
-      <meta name="og:image" content={ogImageUrl} />
+      <HelmetProvider>
+        <Helmet prioritizeSeoTags>
+          <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
+          <meta name="description" content={metaDescription} />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={metaDescription} />
+          <meta property="og:type" content="website" />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:creator" content={site.siteMetadata?.author || ``} />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={metaDescription} />
+          <meta property="og:image" content="https://remarkable-youtiao-140ae6.netlify.app/src/images/groufo-autorental.jpg" />
+        </Helmet>
+      </HelmetProvider>
       {children}
     </>
   )
