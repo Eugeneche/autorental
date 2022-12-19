@@ -8,8 +8,9 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Helmet, HelmetProvider } from "react-helmet-async"
+import og from "../images/social.jpg"
 
-function Seo({ description, title, children }) {
+function Seo({ description, title, children, ogImageDefault }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -40,7 +41,7 @@ function Seo({ description, title, children }) {
           <meta name="twitter:creator" content={site.siteMetadata?.author || ``} />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={metaDescription} />
-          <meta property="og:image" content="https://remarkable-youtiao-140ae6.netlify.app/src/images/groufo-autorental.jpg" />
+          <meta property="og:image" content={og} />
         </Helmet>
       </HelmetProvider>
       {children}
