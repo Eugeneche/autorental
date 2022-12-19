@@ -8,10 +8,10 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Helmet, HelmetProvider } from "react-helmet-async"
-import og from "../images/social.jpg"
+//import og from "../images/social.jpg"
 
-function Seo({ description, title, children, ogImageDefault }) {
-  const { site } = useStaticQuery(
+const Seo = ({ description, title, children, imageUrl, imageAlt }) => {
+  const data = useStaticQuery(
     graphql`
       query {
         site {
@@ -22,32 +22,43 @@ function Seo({ description, title, children, ogImageDefault }) {
             siteUrl
           }
         }
+        ogImageDefault: file(relativePath: {eq: "social.jpg"}) { 
+          childImageSharp {
+            fixed(height: 260, width: 260) {
+              src
+            }
+          }
+        }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const metaDescription = description || data.site.siteMetadata.description
+  const defaultTitle = data.site.siteMetadata?.title
 
   return (
     <>
       <HelmetProvider>
-        <Helmet prioritizeSeoTags>
+        <Helmet>
           <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
           <meta name="description" content={metaDescription} />
           <meta property="og:title" content={title} />
           <meta property="og:description" content={metaDescription} />
           <meta property="og:type" content="website" />
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:creator" content={site.siteMetadata?.author || ``} />
+          <meta property="twitter:image:alt" content={imageAlt || "Groufo auto rental"} />
+          <meta property="og:image" content={constructUrl(data.site.siteMetadata.siteUrl, data.ogImageDefault?.childImageSharp?.fixed?.src)} />
+          <meta name="twitter:card" content={constructUrl(data.site.siteMetadata.siteUrl, data.ogImageDefault?.childImageSharp?.fixed?.src)} />
+          <meta name="twitter:creator" content={data.site.siteMetadata?.author || ``} />
           <meta name="twitter:title" content={title} />
-          <meta name="twitter:description" content={metaDescription} />
-          <meta property="og:image" content={`${site.siteMetadata?.siteUrl}${og}`} />
+          <meta name="twitter:description" content={metaDescription} />         
         </Helmet>
       </HelmetProvider>
       {children}
     </>
   )
 }
+
+const constructUrl = (baseUrl, path) =>
+  (!baseUrl || !path) ? null : `${baseUrl}${path}`
 
 export default Seo
