@@ -58,7 +58,6 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <Seo title="Groufo" />
       <HeaderSlider />
       <div className={styles.contentContainer}>
         <h1 className={styles.mainPageTitle}>půjčovna aut pravě pro vás</h1>
@@ -87,6 +86,6 @@ const IndexPage = () => {
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-//export const Head = () => <Seo title="Groufo" />
+export const Head = () => <Seo title="Groufo" />
 
 export default IndexPage

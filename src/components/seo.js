@@ -7,7 +7,7 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Helmet, HelmetProvider } from "react-helmet-async"
+//import { Helmet, HelmetProvider } from "react-helmet-async"
 //import og from "../images/social.jpg"
 
 const Seo = ({ description, title, children, imageUrl, imageAlt }) => {
@@ -38,8 +38,8 @@ const Seo = ({ description, title, children, imageUrl, imageAlt }) => {
 
   return (
     <>
-      <HelmetProvider>
-        <Helmet prioritizeSeoTags>
+{/*       <HelmetProvider>
+        <Helmet prioritizeSeoTags> */}
           <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
           <meta property="twitter:image:alt" content={imageAlt || "Groufo auto rental"} />
           <meta property="og:image" content={constructUrl(data.site.siteMetadata.siteUrl, data.ogImageDefault?.childImageSharp?.fixed?.src)} />
@@ -52,8 +52,8 @@ const Seo = ({ description, title, children, imageUrl, imageAlt }) => {
           <meta name="twitter:creator" content={data.site.siteMetadata?.author || ``} />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={metaDescription} />         
-        </Helmet>
-      </HelmetProvider>
+{/*         </Helmet>
+      </HelmetProvider> */}
       {children}
     </>
   )
