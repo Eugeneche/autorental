@@ -21,5 +21,5 @@ Váš cestovní pas a jakýkoliv další průkaz totožnosti který potřebuje a
     </div>
   </Layout>
 )
-
+export const Head = () => <Seo title="Podminky půjčení auta" />
 export default Conditions

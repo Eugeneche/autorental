@@ -7,13 +7,12 @@ import "../style/_map.module.scss"
 
 const Contacts = () => (
   <Layout>
-    <Seo title="Podminky" />
     <div className={styles.contentContainer}>
       <div className={styles.gap}></div>
       <div className={styles.gap}></div>
       <h1>kontakty</h1>
       <iframe src="https://storage.googleapis.com/maps-solutions-7uglb5yzl3/commutes/7ted/commutes.html"
-        width="100%" 
+        /* width="100%"  */
         style={{border: 0, width: "100%"}}
         loading="lazy">
       </iframe>
@@ -21,5 +20,7 @@ const Contacts = () => (
     </div>
   </Layout>
 )
+
+export const Head = () => <Seo title="Kontakty autopůjčovny" />
 
 export default Contacts

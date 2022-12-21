@@ -11,7 +11,7 @@ import transmission from "../../images/icons/transmission.svg"
 import car from "../../images/icons/car.svg"
 import factory from "../../images/icons/factory.svg"
 
-const ItemPage = ({ data, pageContext } ) => {
+const ItemPage = ({ data, pageContext }) => {
 
   let images = [], names = [], image
 
@@ -29,8 +29,7 @@ const ItemPage = ({ data, pageContext } ) => {
   } else image = images[0]
 
   return (
-    <Layout>
-      <Seo title={data?.mdx?.frontmatter.name} />
+    <Layout>     
       <div className={styles.gap}></div>
       <div className={styles.contentContainer}>
         <h1 className={style.itemPageTitle}>Půjčení auta {data?.mdx?.frontmatter.name}</h1>
@@ -84,13 +83,19 @@ const ItemPage = ({ data, pageContext } ) => {
 
 export default ItemPage
 
+export const Head = ({ data }) => (
+  <Seo title={data?.mdx?.frontmatter.name} description={`Půjčit ${data?.mdx?.frontmatter.category} - ${data?.mdx?.frontmatter.name}, jen ŘP a OP, bez kauce!`}>
+    <script type="application/ld+json">{JSON.stringify({})}</script>
+  </Seo>
+)
+
 export const query = graphql`
 query getPageData($originalSlug: String) {
   allFile(filter: {sourceInstanceName: {eq: "vehicles"}, extension: {eq: "jpg"}}) {
     nodes {
       relativePath
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH, height: 400)
+        gatsbyImageData(layout: CONSTRAINED)
         id
       }
       relativeDirectory
