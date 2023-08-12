@@ -31,5 +31,5 @@ const Conditions = () => (
     </div>
   </Layout>
 )
-export const Head = () => <Seo title="Podminky půjčení auta" />
+export const Head = () => <Seo title="Conditions of car rental" />
 export default Conditions

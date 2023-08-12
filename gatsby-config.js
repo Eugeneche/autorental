@@ -9,8 +9,8 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Autopůjčovna Teplice`,
-    description: `Autopůjčovna Teplice, Most, Děčín, Ústí nad Labem. Denní, týdení nebo dlouhodobý pronájem aut bez závazků a starostí.`,
+    title: `Best prices, Quick and easy rental, Large range of vehicles`,
+    description: `Explore your destination with ease and comfort.`,
     author: `@websolutionsforyou.com`,
     siteUrl: `https://remarkable-youtiao-140ae6.netlify.app`
   },

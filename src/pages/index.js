@@ -82,7 +82,7 @@ query getdata {
 `
 
 
-export const Head = () => <Seo title="Groufo auto rental" />
+export const Head = () => <Seo title="Cruiseease car rental" />
 
 export default IndexPage
 

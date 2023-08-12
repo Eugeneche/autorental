@@ -2,9 +2,7 @@ import * as React from "react"
 import * as styles from "./_MainMenu.module.scss"
 import { Link } from "gatsby"
 import { graphql, useStaticQuery } from "gatsby"
-import logo_round from "../../images/logo_round.png"
 import logo_rect from "../../images/logo_rect.png"
-//import { StaticImage } from "gatsby-plugin-image"
 
 const MainMenu = () => {
 
@@ -52,7 +50,7 @@ const MainMenu = () => {
 
                         </div>
                         <div className={styles.socials}>
-                            <span>Call us:&nbsp;</span><a href="tel:+000123456789">555 456 789</a>
+                            <span>Call us:&nbsp;</span><a href="tel:+012555456789">555 456 789</a>
                         </div>
                     </div>
                 </div>
