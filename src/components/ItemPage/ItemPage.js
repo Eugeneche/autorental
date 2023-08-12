@@ -32,20 +32,20 @@ const ItemPage = ({ data, pageContext }) => {
     <Layout>     
       <div className={styles.gap}></div>
       <div className={styles.contentContainer}>
-        <h1 className={style.itemPageTitle}>Půjčení auta {data?.mdx?.frontmatter.name}</h1>
+        <h1 className={style.itemPageTitle}>Rent {data?.mdx?.frontmatter.name}</h1>
         <div className={style.contentSliderItem}>
           <div className={style.image}>
             <GatsbyImage image={image.childImageSharp.gatsbyImageData} alt={data?.mdx?.frontmatter.name} />
           </div>
           <div className={style.propertiesBlock}>
             <div className={style.vehicleTitle}>
-              <h3>Specifikace vozidla {data?.mdx?.frontmatter.name}</h3>
+              <h3>Car specification {data?.mdx?.frontmatter.name}</h3>
             </div>
             <div className={style.propertyItem}>
               <img className={style.propertyIcon} src={seat} alt="auto seat icon"></img><span>{data?.mdx?.frontmatter.seats}</span>
             </div>
             <div className={style.propertyItem}>
-              <img className={style.propertyIcon} src={snowflake} alt="snowflake icon"></img>{data?.mdx?.frontmatter.ac ? `Ano` : `Ne`}            
+              <img className={style.propertyIcon} src={snowflake} alt="snowflake icon"></img>{data?.mdx?.frontmatter.ac ? `yes` : `no`}            
             </div>   
             <div className={style.propertyItem}>
               <img className={style.propertyIcon} src={transmission} alt="transmission icon"></img><span>{data?.mdx?.frontmatter.transmission}</span>
@@ -54,12 +54,12 @@ const ItemPage = ({ data, pageContext }) => {
               <img className={style.propertyIcon} src={car} alt="car icon"></img><span>{data?.mdx?.frontmatter.bodyStyle}</span>
             </div>    
             <div className={style.propertyItem}>
-              <img className={style.propertyIcon} src={factory} alt="factory icon"></img>{`Rok ${data?.mdx?.frontmatter.year}`}
+              <img className={style.propertyIcon} src={factory} alt="factory icon"></img>{`${data?.mdx?.frontmatter.year}`}
             </div>    
 
           </div>
           <div className={style.price}>
-            {`${data?.mdx?.frontmatter.price} Kč/den`}
+            {`$${data?.mdx?.frontmatter.price}/day`}
           </div>
         </div>
 
@@ -84,7 +84,7 @@ const ItemPage = ({ data, pageContext }) => {
 export default ItemPage
 
 export const Head = ({ data }) => (
-  <Seo title={data?.mdx?.frontmatter.name} description={`Půjčit ${data?.mdx?.frontmatter.category} - ${data?.mdx?.frontmatter.name}, jen ŘP a OP, bez kauce!`}>
+  <Seo title={data?.mdx?.frontmatter.name} description={`Rent ${data?.mdx?.frontmatter.category} - ${data?.mdx?.frontmatter.name}, the best price, without a deposit!`}>
     <script type="application/ld+json">{JSON.stringify({})}</script>
   </Seo>
 )

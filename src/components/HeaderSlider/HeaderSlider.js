@@ -4,7 +4,7 @@ import * as styles from "./_HeaderSlider.module.scss"
 import wallet from "../../images/icons/wallet.svg"
 import cars from "../../images/icons/cars.svg"
 import time from "../../images/icons/time.svg"
-import fullLogo from "../../images/groufo_logo_2.png"
+import fullLogo from "../../images/logo_round.png"
 
 
 const HeaderSlider = () => {
@@ -18,25 +18,25 @@ const HeaderSlider = () => {
                         <img src={fullLogo} alt="Groufo logo"></img>
                     </div>
                     <div className={styles.heroText}>
-                        <h4 className={styles.mainHeroText}>Autopůjčovna</h4>
-                        <h2 className={styles.mainHeroText}>Groufo</h2>
-                        <h4 className={styles.subHeroText}>spolehlivě</h4>
-                        <h4 className={styles.subHeroText}>rychle</h4>
-                        <h4 className={styles.subHeroText}>výhodné</h4> 
+                        <h4 className={styles.mainHeroText}>Car rental</h4>
+                        <h2 className={styles.mainHeroText}>CruiseEase</h2>
+                        <h4 className={styles.subHeroText}>reliably</h4>
+                        <h4 className={styles.subHeroText}>fast</h4>
+                        <h4 className={styles.subHeroText}>profitable</h4> 
                     </div>
                 </div>
                 <div className={styles.advantages}>
                     <div className={styles.advantageItem}>
                         <img src={wallet} alt="wallet icon"></img>
-                        <span className={styles.advantageTitle}>Nejlepší ceny</span>
+                        <span className={styles.advantageTitle}>Best prices</span>
                     </div>
                     <div className={styles.advantageItem}>
                         <img src={time} alt="short time icon"></img>
-                        <span className={styles.advantageTitle}>Rychlé a jednoduché půjčení</span>
+                        <span className={styles.advantageTitle}>Quick and easy rental</span>
                     </div>
                     <div className={styles.advantageItem}>
                         <img src={cars} alt="cars icon"></img>
-                        <span className={styles.advantageTitle}>Velký výběr vozidel</span>
+                        <span className={styles.advantageTitle}>Large range of vehicles</span>
                     </div>
                 </div>
             </div>

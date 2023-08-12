@@ -8,38 +8,6 @@ import ContentSliderItemCategory from "../ContentSlider/ContentSliderItemCategor
 
 const CategoryPage = ({data, pageContext}) => {
 
-  /* const query = useStaticQuery(graphql`
-    query getCategory {
-      allMdx(filter: {fields: {slug: {ne: "/categories/"}}}) {
-        nodes {
-          frontmatter {
-            airConditioner
-            bodyStyle
-            category
-            name
-            price
-            seats
-            transmission
-            year
-          }
-          fields {
-            slug
-          }
-        }
-      }
-      allFile(filter: {sourceInstanceName: {eq: "vehicles"}, extension: {eq: "jpg"}}) {
-        nodes {
-          childImageSharp {
-            gatsbyImageData(placeholder: DOMINANT_COLOR, height: 480, width: 640)
-            id
-          }
-          relativeDirectory
-          name
-        }
-      }
-    }
-  `) */
-
   const currentCategory = pageContext.categoryName
   const vehiclesOfCurrentCategory = []
   let allData = {}
@@ -88,7 +56,7 @@ const CategoryPage = ({data, pageContext}) => {
 export default CategoryPage
 
 export const Head = ({ data, pageContext }) => (
-  <Seo title={pageContext.categoryName} description={`Autopůjčovna v Teplicích. ${pageContext.categoryName} - Velký výběr bez kauce, stačí OP a ŘP`}>
+  <Seo title={pageContext.categoryName} description={`CRUISEEASE Car rental. ${pageContext.categoryName} - without a deposite, fast, convenient`}>
     <script type="application/ld+json">{JSON.stringify({})}</script>
   </Seo>
 )

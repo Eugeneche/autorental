@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -10,57 +10,15 @@ import HeaderSlider from "../components/HeaderSlider/HeaderSlider"
 import ContentSlider from "../components/ContentSlider/ContentSlider"
 
 
-const IndexPage = () => {
+const IndexPage = ({data}) => {
 
-  let data = useStaticQuery(graphql`
-  query getdata {
-    file(sourceInstanceName: {eq: "categories"}, extension: {eq: "mdx"}) {
-      childMdx {
-        frontmatter {
-          categories
-        }
-      }
-    }
-    allFile(filter: {sourceInstanceName: {eq: "vehicles"}, extension: {eq: "jpg"}}) {
-      nodes {
-        relativeDirectory
-        childrenImageSharp {
-          gatsbyImageData
-        }
-      }
-    }
-    allMdx(
-      filter: {fields: {slug: {ne: "/categories/"}}}
-      sort: {frontmatter: {date: ASC}}
-    ) {
-      nodes {
-        frontmatter {
-          airConditioner
-          bodyStyle
-          category
-          name
-          price
-          seats
-          transmission
-          year
-          date(formatString: "MMMM DD, YYYY")
-        }
-        id
-        fields {
-          slug
-        }
-      }
-    }
-  }
-`)
-  
   let categories = data.file.childMdx.frontmatter.categories
 
   return (
     <Layout>
       <HeaderSlider />
       <div className={styles.contentContainer}>
-        <h1 className={styles.mainPageTitle}>půjčovna aut pravě pro vás</h1>
+        <h1 className={styles.mainPageTitle}>Car rental just for you</h1>
         {categories.map(category => {
           const imageData = []
           data.allMdx.nodes.map(node => {
@@ -74,18 +32,57 @@ const IndexPage = () => {
               <ContentSlider imageData={imageData}/>
             </section>
           )
-        })} 
+        })}
 
       </div>
     </Layout>
   )
 }
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
+export const query = graphql`
+query getdata {
+  file(sourceInstanceName: {eq: "categories"}, extension: {eq: "mdx"}) {
+    childMdx {
+      frontmatter {
+        categories
+      }
+    }
+  }
+  allFile(filter: {sourceInstanceName: {eq: "vehicles"}, extension: {eq: "jpg"}}) {
+    nodes {
+      relativeDirectory
+      childrenImageSharp {
+        gatsbyImageData
+      }
+    }
+  }
+  allMdx(
+    filter: {fields: {slug: {ne: "/categories/"}}}
+    sort: {frontmatter: {date: ASC}}
+  ) {
+    nodes {
+      frontmatter {
+        airConditioner
+        bodyStyle
+        category
+        name
+        price
+        seats
+        transmission
+        year
+        date(formatString: "MMMM DD, YYYY")
+      }
+      id
+      fields {
+        slug
+      }
+    }
+  }
+}
+`
+
+
 export const Head = () => <Seo title="Groufo auto rental" />
 
 export default IndexPage
+

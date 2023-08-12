@@ -2,7 +2,8 @@ import * as React from "react"
 import * as styles from "./_MainMenu.module.scss"
 import { Link } from "gatsby"
 import { graphql, useStaticQuery } from "gatsby"
-import logo from "../../images/groufo_logo_yellow_white.svg"
+import logo_round from "../../images/logo_round.png"
+import logo_rect from "../../images/logo_rect.png"
 //import { StaticImage } from "gatsby-plugin-image"
 
 const MainMenu = () => {
@@ -25,7 +26,7 @@ const MainMenu = () => {
                 <div className={styles.container}>
                     <div className={styles.logo}>
                         <Link to="/">
-                            <img src={logo} alt="groufo logo"></img>
+                            <img src={logo_rect} alt="groufo logo"></img>
                         </Link>
                     </div>
                     <div className={styles.items}>
@@ -33,8 +34,7 @@ const MainMenu = () => {
                             <ul>
                                 <li className={styles.vehicles}>
                                     <div className={styles.vehiclesArea}></div>
-                                    {/* <Link to="/vehicles">Auta&nbsp;<span style={{display: "inline-block", color: "grey",  transform: "rotate(90deg)", top: "7px"}}>&#10095;</span></Link> */}
-                                    Auta&nbsp;&nbsp;<span style={{display: "inline-block", color: "grey",  transform: "rotate(90deg)", top: "7px"}}>&#10095;</span>
+                                    Cars&nbsp;&nbsp;<span style={{display: "inline-block", color: "grey",  transform: "rotate(90deg)", top: "7px"}}>&#10095;</span>
                                     <ul className={styles.vehiclesCategories}>
                                     {vehiclesCategories.map(cat => {
                                         const url = cat.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
@@ -43,16 +43,16 @@ const MainMenu = () => {
                                 </ul>
                                 </li>
                                 <li>
-                                    <Link to="/conditions">Podminky</Link>
+                                    <Link to="/conditions">Conditions</Link>
                                 </li>
                                 <li>
-                                    <Link to="/contacts">Kontakty</Link>
+                                    <Link to="/contacts">Contacts</Link>
                                 </li>
                             </ul>
 
                         </div>
                         <div className={styles.socials}>
-                            <span>Zavolejte nám:&nbsp;</span><a href="tel:+420736195020">736 195 020</a>
+                            <span>Call us:&nbsp;</span><a href="tel:+000123456789">555 456 789</a>
                         </div>
                     </div>
                 </div>

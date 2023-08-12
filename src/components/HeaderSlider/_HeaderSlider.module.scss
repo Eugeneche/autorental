@@ -5,7 +5,7 @@
 
 .cover {
     position: absolute;
-    background: #ebeb9557;
+    background: #60606021;
     height: 100%;
     width: 100%;
     z-index: 1;
@@ -26,7 +26,6 @@
         display: flex;
         background: #24241ac2;
         padding: 15px 20px;
-        /* min-width: 100px; */
         max-width: fit-content;   
         margin-left: auto;
         margin-right: 0; 
@@ -38,6 +37,9 @@
 
             img {
                 margin-bottom: 0;
+                opacity: 0.7;
+                border: 4px solid #ffd950;
+                border-radius: 50%;
             }
         }
 
@@ -72,7 +74,7 @@
         align-items: center;
         width: 100%;
         height: 150px;
-        background: #faffd1;
+        background: #fffc88;
 
         .advantage-item {
             display: flex;
@@ -156,11 +158,10 @@
 
     .hero {
         transform: translate(-50%, 100%);
-        background: #f1f1f1;
+        background: #fffc88;
         min-height: auto;
 
         .top-background {
-            /* margin-left: 0; */
             padding: 2vw;
             margin: 10px auto 0;
             column-gap: 2vw;
@@ -168,6 +169,10 @@
 
             .full-logo {
                 width: 90px;
+
+                img {
+                    opacity: 1;
+                }
             }
 
             .hero-text {
@@ -194,6 +199,7 @@
             margin: 10px auto;
             width: fit-content;
             padding: 1vw 6vw;
+            background: #fffedd;
 
             .advantage-item {
                 flex-direction: row;
@@ -207,13 +213,14 @@
                 }
             }
         }
-
     }
-
-
 }
 
 @media screen and (max-width: 428px) {
+
+    .header-slider {
+        margin-bottom: calc(180px + 20vw);
+    }
 
     .hero {
 

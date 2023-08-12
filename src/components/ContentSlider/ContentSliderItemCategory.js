@@ -23,7 +23,7 @@ const ContentSliderItemCategory = (props) => {
             <img className={styles.propertyIcon} src={seat} alt="auto seat icon"></img><span>{props.seats}</span>
           </div>
           <div className={styles.propertyItem}>
-            <img className={styles.propertyIcon} src={snowflake} alt="snowflake icon"></img>{props.ac ? `Ano` : `Ne`}            
+            <img className={styles.propertyIcon} src={snowflake} alt="snowflake icon"></img>{props.ac ? `yes` : `no`}            
           </div>   
           <div className={styles.propertyItem}>
             <img className={styles.propertyIcon} src={transmission} alt="transmission icon"></img><span>{props.transmission}</span>
@@ -32,12 +32,12 @@ const ContentSliderItemCategory = (props) => {
             <img className={styles.propertyIcon} src={car} alt="car icon"></img><span>{props.bodyStyle}</span>
           </div>    
           <div className={styles.propertyItem}>
-            <img className={styles.propertyIcon} src={factory} alt="factory icon"></img>{`Rok ${props.year}`}
+            <img className={styles.propertyIcon} src={factory} alt="factory icon"></img>{`${props.year}`}
           </div>    
 
         </div>
         <div className={styles.price}>
-          {`${props.price} Kč/den`}
+          {`$${props.price}/day`}
         </div>
     </div>
   )

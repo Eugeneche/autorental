@@ -7,7 +7,7 @@ const Footer = () => {
     <>
       <footer className={styles.footer}>
         <div className={styles.footerContainer}>
-          <span>© 2020 - {new Date().getFullYear()}, GROUFO AUTO RENTAL, all rights reserved</span>
+          <span>© 2020 - {new Date().getFullYear()}, CRUISEEASE CAR RENTAL, all rights reserved</span>
         </div>
       </footer>
     </>
