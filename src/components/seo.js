@@ -56,5 +56,4 @@ const Seo = ({ description, title, children, imageUrl, imageAlt }) => {
 const constructUrl = (baseUrl, path) =>
   (!baseUrl || !path) ? null : `${baseUrl}${path}`
   
-
 export default Seo
