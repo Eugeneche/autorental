@@ -12,7 +12,7 @@ module.exports = {
     title: `Best prices, Quick and easy rental, Large range of vehicles`,
     description: `Explore your destination with ease and comfort.`,
     author: `@websolutionsforyou.com`,
-    siteUrl: `https://nebula-restaurant.netlify.app`
+    siteUrl: `https://cruise-ease-cars.netlify.app`
   },
   plugins: [
     `gatsby-plugin-image`,
